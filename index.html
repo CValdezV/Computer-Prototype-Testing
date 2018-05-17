@@ -1,179 +1,137 @@
-<CENTER>
-<FORM Name="GPACalcForm">
-<TABLE BORDER=5 BGCOLOR=#C0C0C0 CELLPADDING="5" 
-CELLSPACING="2">
-<TH>Course</TH>
-<TH>Grade</TH>
-<TH>Credits</TH>
-<TR>
-<TD>Introduction to Java I</TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR1" ALIGN=TOP 
-MAXLENGTH=5></TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR1" ALIGN=TOP 
-MAXLENGTH=5></TD>
-</TR>
-<TR>
-<TD>Computer Architecture II</TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR2" ALIGN=TOP 
-MAXLENGTH=5></TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR2" ALIGN=TOP 
-MAXLENGTH=5></TD>
-</TR>
-<TR>
-<TD>Computer Basics</TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR3" ALIGN=TOP 
-MAXLENGTH=5></TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR3" ALIGN=TOP 
-MAXLENGTH=5></TD>
-</TR>
-<TR>
-<TD>Algorithm Analysis</TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR4" ALIGN=TOP 
-MAXLENGTH=5></TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR4" ALIGN=TOP 
-MAXLENGTH=5></TD>
-</TR>
-<TR>
-<TD>Discrete Math</TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR5" ALIGN=TOP 
-MAXLENGTH=5></TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR5" ALIGN=TOP 
-MAXLENGTH=5></TD>
-</TR>
-<TR>
-<TD>Software Engineering II</TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR6" ALIGN=TOP 
-MAXLENGTH=5></TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR6" ALIGN=TOP 
-MAXLENGTH=5></TD>
-</TR>
-<TR>
-<TD>User Interface II</TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR7" ALIGN=TOP 
-MAXLENGTH=5></TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR7" ALIGN=TOP 
-MAXLENGTH=5></TD>
-</TR>
-<TR>
-<TD>Web Develpment III</TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="GR8" ALIGN=TOP 
-MAXLENGTH=5></TD>
-<TD><INPUT TYPE=TEXT SIZE=5 NAME="CR8" ALIGN=TOP 
-MAXLENGTH=5></TD>
-</TR>
-<TR ALIGN=CENTER>
-<TD COLSPAN=3><INPUT TYPE="BUTTON" VALUE="Calculate" 
-NAME="CalcButton"
-OnClick="gpacalc()"></TD>
-</TR>
-</TABLE>
-</FORM>
-<BR>
-<P>
+<!doctype html>
+<html class="no-js" lang="">
 
-<P>
-</CENTER>
-
-<BR>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Student Portal</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-<SCRIPT LANGUAGE="JavaScript">
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
 
-<!-- 
-function gpacalc()
-{
-//define valid grades and their values
-var gr = new Array(9); 
-var cr = new Array(9);
-var ingr = new Array(5);
-var incr = new Array(5);
+	<body>
 
-// define valid grades and their values
-var grcount = 11; 
-gr[0] = "A+";
-cr[0] = 5;
-gr[1] = "A"; 
-cr[1] = 4; 
-gr[2] = "A-";
-cr[2] = 3.66;
-gr[3] = "B+";
-cr[3] = 3.33;
-gr[4] = "B";
-cr[4] = 3;
-gr[5] = "B-";
-cr[5] = 2.66;
-gr[6] = "C+";
-cr[6] = 2.33;
-gr[7] = "C";
-cr[7] = 2;
-gr[8] = "C-";
-cr[8] = 1.66;
-gr[9] = "D";
-cr[9] = 1;
-gr[10] = "F";
-cr[10] = 0;
-// retrieve user input
-ingr[0] = document.GPACalcForm.GR1.value;
-ingr[1] = document.GPACalcForm.GR2.value;
-ingr[2] = document.GPACalcForm.GR3.value;
-ingr[3] = document.GPACalcForm.GR4.value;
-ingr[4] = document.GPACalcForm.GR5.value;
-ingr[5] = document.GPACalcForm.GR6.value;
-ingr[6] = document.GPACalcForm.GR7.value;
-ingr[7] = document.GPACalcForm.GR8.value;
-incr[0] = document.GPACalcForm.CR1.value;
-incr[1] = document.GPACalcForm.CR2.value;
-incr[2] = document.GPACalcForm.CR3.value;
-incr[3] = document.GPACalcForm.CR4.value;
-incr[4] = document.GPACalcForm.CR5.value;
-incr[5] = document.GPACalcForm.CR6.value;
-ingr[6] = document.GPACalcForm.GR7.value;
-ingr[7] = document.GPACalcForm.GR8.value;
+		<!-- Site starts here -->
+		<table border="0" cellpadding="3" style="border-collapse: collapse; width: 95%" id="table1" cellspacing="0">
+			<tbody>
+				<tr>
+					<td rowspan="2" align="left" width="220" valign="top"><a href="http://www.cwu.edu/"> <img border="0" src="cwu_logo.png" alt="CWU Logo -link to home page" width="200"  hspace="5" vspace="5"></a>
+					<table width="210" cellpadding="3" cellspacing="0" border="0" bgcolor="#ffbcc2">
+						<tbody>
+							<tr>
+								<td>
+								<p>
+									&nbsp;&nbsp;&nbsp;&nbsp;<strong> <a href="index.html" class="selected">Student Portal Home</a></strong>
+									<br>
+									<br>
 
-// Calculate GPA
-var allgr =0;
-var allcr = 0;
-var gpa = 0;
-for (var x = 0; x < 5 + 3; x++)
-        {
-        if (ingr[x] == "") break;
-//      if (isNaN(parseInt(incr[x]))) alert("Error- You did not enter a numeric  credits value for Class If the class is worth 0 credits then enter the number 0 in  the field."); 
-        var validgrcheck = 0;
-        for (var xx = 0; xx < grcount; xx++)
-                {
-                if (ingr[x] == gr[xx])
-                        {
-                        allgr = allgr + (parseInt(incr[x],10) * cr[xx]);
-                        allcr = allcr + parseInt(incr[x],10);
-                        validgrcheck = 1;
-                        break;
-                        }
-                }
-        if (validgrcheck == 0)
-                {
-                alert("Error- Could not recognize the grade entered for Class " + eval(x +  1) + ". Please use standard college grades in the form of A A- B+ ...F.");
-                return 0;
-                }
-        }
+								</p>
+								
+								<h3>Registration:</h3> 
+								&nbsp;&nbsp;<a href="register.html">Add/Drop</a>
+								<br>
+								&nbsp;&nbsp;<a href="oops.html">Enrollment Date</a>
+								<br>
+								&nbsp;&nbsp;<a href="schedule.html">View Your Schedule</a>
+								
+								<h3>Academics:</h3> 
+								&nbsp;&nbsp;<a href="grades.html">View Grades</a>
+								<br>
+								&nbsp;&nbsp;<a href="oops.html">View Unofficial Transcripts</a>
+								<br>
+								&nbsp;&nbsp;<a href="oops.html">Order Official Transcripts</a>
+								<br>
+								
+								<h3>Personal Information:</h3> 
+								&nbsp;&nbsp;<a href="oops.html">Display SID</a>
+								<br>
+								&nbsp;&nbsp;<a href="oops.html">Change Password</a>
+								<br>
+								&nbsp;&nbsp;<a href="oops.html">Update Address/Phone</a>
+								<br>
+								
+								<h3>Financial:</h3> 
+								&nbsp;&nbsp;<a href="oops.html">View Financial Aid</a>
+								<br>
+								&nbsp;&nbsp;<a href="oops.html">Pay Tuition</a>
+								<br>
+								&nbsp; <a href="oops.html">View Tax Information</a>
+								<br>
+								
+								<h3>Help/Contacts:</h3> 
+								&nbsp; <a href="oops.html">Advisors</a>
+								<br>
+								&nbsp; <a href="oops.html">Financial Offices</a>
+								<br>
+								<br>
+								</td>
+							</tr>
+						</tbody>
+					</table></td>
+					<td align="center" valign="top" style="width: 594px">
+					<br>
+					<div class="wrapper">
+					<h1>Welcome to Online Student Services</h1>
+					</div>
+					<br>
+					<br>
+					<style type="text/css">
+						.style1 {
+							text-align: center;
+						}
+						
+						h1{
+						 font-family: consolas;
+						}
+						p{
+						font-family: Consolas;
+						}
+						.wrapper{
+						border: 2px solid #000000;
+						border-radius: 25px;
+						padding-left: 15px;
+						padding-right: 15px;
+						}
 
-// this if-check prevents a divide by zero error
-if (allcr == 0)
-        {
-        alert("Error- You did not enter any credit values! GPA = N/A");
-        return 0;
-        }
+					</style>
+					
+					<!--  begin gray news table  -->
+					<div class="ltgreen infoBlock" id="table3">
+						<div class="style1">
+							<strong class="blue" style="font-size: 1.75em;">NEWS</strong>
+							<br>
+							<div style="text-align: left; width: 75%; margin-top: 1em; margin-left: auto; margin-right: auto; margin-bottom: 2em;">
+								<strong class="blue">
+								<br>
+								Registration is opened!
+								<br>
+								Check your enrollment date. </strong>
+								<br>
+								<br>
 
-gpa = allgr / allcr;
+							</div>
+						</div>
+					</div>
+					<!-- end gray table -->
+					
+					</td>
+				</tr>
 
-alert("GPA =  " + eval(gpa));
+			</tbody>
+		</table>
 
-return 0;
-}
+		<script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script>
+		<script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js" integrity="{{JQUERY_SRI_HASH}}" crossorigin="anonymous"></script>
+		<script>
+			window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')
+		</script>
+		<script src="js/plugins.js"></script>
+		<script src="js/main.js"></script>
 
-//-->
-    
-</SCRIPT>
+	</body>
 
-<p align="center"><font face="arial" size="-2">This free script provided by</font><br>
-<font face="arial, helvetica" size="-2"><a href="http://javascriptkit.com">JavaScript
-Kit</a></font></p>
+</html>
