@@ -65,108 +65,43 @@
 						<h1>Add / Drop Form</h1>
 					</div>
 					<br>
-					<div class="tab">
-						<button class="tablinks" onclick="openTab(event, 'Add / Drop')">
-							Add / Drop
-						</button>
-						<button class="tablinks" onclick="openTab(event, 'Course Catalog')">
-							Course Catalog
-						</button>
-						<button class="tablinks" onclick="openTab(event, 'My Classes')">
-							My Classes
-						</button>
-					</div>
-					<div id="Add / Drop" class="tabcontent">
-						<h3>ADD</h3>
-						<p>
-							Department:
-							<select>
+					
+					<div id="Add / Drop" align ="left" >
+						<h2>Add Classes</h2>
+							<form id="class">
+  								Department:
+  							<select id="classType" name ="classType">
 								<option value="-">-</option>
 								<option value="CS">CS</option>
 								<option value="IT">IT</option>
 								<option value="Math">Math</option>
 							</select>
-							&nbsp;&nbsp;
+  							&nbsp;&nbsp;
 							Course:
-							<select>
+							<select id ="classId" name ="classId">
 								<option value="-">-</option>
 								<option value="101">101</option>
 								<option value="111">111</option>
 								<option value="300">300</option>
 							</select>
-						</p>
+  <input id= "button" type = "button" value="add" onclick ="addSampleRow('myClasses')">
+</form>
+<h3>check a box to drop the class</h3>
+<input type="button" id="btnDelete" value="Drop Selected" onclick="removeSampleRow('myClasses')">
+<table id="myClasses" border="1" cellspacing="2" cellpadding="10">
+    <tr>
 
-						<p>
-							Department:
-							<select>
-								<option value="-">-</option>
-								<option value="CS">CS</option>
-								<option value="IT">IT</option>
-								<option value="Math">Math</option>
-							</select>
-							&nbsp;&nbsp;
-							Course:
-							<select>
-								<option value="-">-</option>
-								<option value="101">101</option>
-								<option value="111">111</option>
-								<option value="300">300</option>
-							</select>
-						</p>
-
-						<p>
-							Department:
-							<select>
-								<option value="-">-</option>
-								<option value="CS">CS</option>
-								<option value="IT">IT</option>
-								<option value="Math">Math</option>
-							</select>
-							&nbsp;&nbsp;
-							Course:
-							<select>
-								<option value="-">-</option>
-								<option value="101">101</option>
-								<option value="111">111</option>
-								<option value="300">300</option>
-							</select>
-						</p>
-
-						<button class="ADD">
-							ADD
-						</button>
-
-						<p></p>
-						<h3>*****</h3>
-						<p></p>
-						<h3>DROP</h3>
-						<form>
-							Drop courses by course code(s):
-							<br>
-							<input type="text" name="code1">
-							<br>
-							<input type="text" name="code2">
-							<br>
-							<input type="text" name="code3">
-						</form>
-
-						<button class="DROP">
-							DROP
-						</button>
+        <td>Class</td>
+      <td>ID</td>
+      <td>Instructor</td>
+      <td>Credits</td>
+      <td>Drop</td>
+    </tr>
+</table>
 
 					</div>
-					<div id="Course Catalog" class="tabcontent">
-						<h3>Course Catalog</h3>
-						<p>
-
-						</p>
-					</div>
-					<div id="My Classes" class="tabcontent">
-						<h3>My Classes</h3>
-						<p>
-
-						</p>
-					</div>
+					
+					
 					<br>
 					<br>
 					<style type="text/css">
@@ -205,21 +140,76 @@
 		<script src="js/main.js"></script>
 
 		<script>
-			function openTab(evt, tabName) {
-				var i,
-				    tabcontent,
-				    tablinks;
-				tabcontent = document.getElementsByClassName("tabcontent");
-				for ( i = 0; i < tabcontent.length; i++) {
-					tabcontent[i].style.display = "none";
-				}
-				tablinks = document.getElementsByClassName("tablinks");
-				for ( i = 0; i < tablinks.length; i++) {
-					tablinks[i].className = tablinks[i].className.replace(" active", "");
-				}
-				document.getElementById(tabName).style.display = "block";
-				evt.currentTarget.className += " active";
+			/*** FUNCTION TO ADD ROW ***/
+function addSampleRow(id) {
+            
+    /*** We get the table object based on given id ***/
+    var objTable = document.getElementById(id);
+  
+    var department = document.getElementById("classType").value;
+    var course = document.getElementById("classId").value;
+    var unknown ="TBA";
+    var objRow = objTable.insertRow(objTable.rows.length);
+    var objCell1 = objRow.insertCell(0);
+
+
+
+
+    var objInputCheckBox = document.createElement("input");
+    objInputCheckBox.type = "checkbox";
+    objCell1.innerHTML=department;
+
+     /*** We  insert the second row cell ***/
+    var objCell2 = objRow.insertCell(1);
+
+    /*** We  add some text inside the cell ***/
+    objCell2.innerHTML =course;
+    
+  var object3 = objRow.insertCell(2);
+  object3.innerHTML = unknown;
+  
+  var object4 = objRow.insertCell(3);
+  object4.innerHTML = unknown;
+  
+  var object5 = objRow.insertCell(4);
+  object5.appendChild(objInputCheckBox);
+}
+
+ /*** FUNCTION TO DELETE ROW ***/
+function removeSampleRow(id) {
+    /***We get the table object based on given id ***/
+    var objTable = document.getElementById(id);
+
+    /*** Get the current row length ***/
+    var iRow = objTable.rows.length;
+
+	/*** Initial row counter ***/
+	var counter = 0;
+
+    /*** Performing a loop inside the table ***/
+	if (objTable.rows.length > 1) {
+		for (var i = 0; i < objTable.rows.length; i++) {
+
+			 /*** Get checkbox object ***/
+			var chk = objTable.rows[i].cells[4].childNodes[0];
+			if (chk.checked) {
+				/*** if checked we del ***/
+				objTable.deleteRow(i);
+				iRow--;
+				i--;
+				counter = counter + 1;
 			}
+		}
+
+		/*** Alert user if there is now row is selected to be deleted ***/
+		if (counter == 0) {
+			alert("Please select the class you want to drop");
+		}
+	}else{
+		/*** Alert user if there are no rows being added ***/
+		alert("There are no rows being added");
+	}
+}
 		</script>
 
 	</body>
