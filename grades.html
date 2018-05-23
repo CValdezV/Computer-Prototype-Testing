@@ -8,10 +8,16 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/grade-table.css">
 	</head>
+
+	<style>
+		.inv {
+			display: none;
+		}
+	</style>
 
 	<body>
 
@@ -29,41 +35,29 @@
 									<br>
 									<br>
 
-								</p>
-								
-								<h3>Registration:</h3> 
-								&nbsp;&nbsp;<a href="register.html">Add/Drop</a>
+								</p><h3>Registration:</h3> &nbsp;&nbsp;<a href="register.html">Add/Drop</a>
 								<br>
 								&nbsp;&nbsp;<a href="oops.html">Enrollment Date</a>
 								<br>
-								&nbsp;&nbsp;<a href="schedule.html">View Your Schedule</a>
-								
-								<h3>Academics:</h3> 
-								&nbsp;&nbsp;<a href="grades.html" class="selected">View Grades</a>
+								&nbsp;&nbsp;<a href="schedule.html">View Your Schedule</a><h3>Academics:</h3> &nbsp;&nbsp;<a href="grades.html" class="selected">View Grades</a>
 								<br>
 								&nbsp;&nbsp;<a href="oops.html">View Unofficial Transcripts</a>
 								<br>
 								&nbsp;&nbsp;<a href="oops.html">Order Official Transcripts</a>
 								<br>
-								
-								<h3>Personal Information:</h3> 
-								&nbsp;&nbsp;<a href="oops.html">Display SID</a>
+								<h3>Personal Information:</h3> &nbsp;&nbsp;<a href="oops.html">Display SID</a>
 								<br>
 								&nbsp;&nbsp;<a href="oops.html">Change Password</a>
 								<br>
 								&nbsp;&nbsp;<a href="oops.html">Update Address/Phone</a>
 								<br>
-								
-								<h3>Financial:</h3> 
-								&nbsp;&nbsp;<a href="oops.html">View Financial Aid</a>
+								<h3>Financial:</h3> &nbsp;&nbsp;<a href="oops.html">View Financial Aid</a>
 								<br>
 								&nbsp;&nbsp;<a href="oops.html">Pay Tuition</a>
 								<br>
 								&nbsp; <a href="oops.html">View Tax Information</a>
 								<br>
-								
-								<h3>Help/Contacts:</h3> 
-								&nbsp; <a href="oops.html">Advisors</a>
+								<h3>Help/Contacts:</h3> &nbsp; <a href="oops.html">Advisors</a>
 								<br>
 								&nbsp; <a href="oops.html">Financial Offices</a>
 								<br>
@@ -75,46 +69,174 @@
 					<td align="center" valign="top" style="width: 594px">
 					<br>
 					<div class="wrapper">
-					<h1>Grades</h1>
+						<h1>Grades</h1>
 					</div>
-					<br><br>
-					<div align="left">
-						<form id ="quarters">
-							Pick quarter to view grades:&nbsp;&nbsp;&nbsp;<select id="grade">
-								<option value="Spring">Spring</option>
-								<option value="Fall">Fall</option>
-								<option value="Winter">Winter</option>
-							</select>
-							<input id= "button" type = "button" value="view" onclick ="">
-						</form></div>
-					<br>
-					<img src="grades.png" width="594">
-					
 					<br>
 					<br>
-					<style type="text/css">
-						.style1 {
-							text-align: center;
-						}
-						
-						h1{
-						 font-family: consolas;
-						}
-						p{
-						font-family: Consolas;
-						}
-						.wrapper{
-						border: 2px solid #000000;
-						border-radius: 25px;
-						padding-left: 15px;
-						padding-right: 15px;
-						}
+	
+					<br>
+					<!-- Selects views -->
+					<a>Pick quarter to view grades:&nbsp;&nbsp;&nbsp;</a>
+					<select id="target" align="left">
+						<option value="">View...</option>
+						<option value="content_1">Spring 2018</option>
+						<option value="content_2">Winter 2018</option>
+						<option value="content_3">View All Grades</option>
+						<select>
+							<hr />
 
-					</style>
-					<br>
-					<br>
-					
-					
+							<div id="content_1" class="inv">
+								<h1 align="left">Spring 2018</h1>
+								
+								<!--Grade Table starts here-->
+								<table class="Grades">
+									<thead>
+										<tr>
+											<th>Course</th>
+											<th>Course Title</th>
+											<th>Credits</th>
+											<th>Grade</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>MATH 330</td>
+											<td>Discrete Mathematics</td>
+											<td>5.0</td>
+											<td>x</td>
+										</tr>
+										<tr>
+											<td>CS 470</td>
+											<td>Operating Systems</td>
+											<td>4.0</td>
+											<td>x</td>
+										</tr>
+										<tr>
+											<td>CS 101</td>
+											<td>Computer Basics</td>
+											<td>4.0</td>
+											<td>x</td>
+										</tr>
+										<tr>
+											<td>TA</td>
+											<td>Lab Experience in Teaching Computer Science</td>
+											<td>1.0</td>
+											<td>x</td>
+										</tr>
+									</tbody>
+								</table>
+								<br>
+								<table class="Grades">
+									<thead>
+										<tr>
+											<th>Credits Toward GPA</th>
+											<th>Credits Not for GPA</th>
+											<th>Grade Point Average</th>
+											<th>Total Credits</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>x</td>
+											<td>x</td>
+											<td>x</td>
+											<td>x</td>
+
+										</tr>
+									</tbody>
+								</table>
+								<p>
+									* Grades have not been officially posted yet *
+								</p>
+							</div>
+							<div id="content_2" class="inv">
+								<h1 align="left">Winter 2018</h1>
+								
+								<!--Grade Table starts here-->
+								<table class="Grades">
+									<thead>
+										<tr>
+											<th>Course</th>
+											<th>Course Title</th>
+											<th>Credits</th>
+											<th>Grade</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+										
+									</tbody>
+								</table>
+								<br>
+								<table class="Grades">
+									<thead>
+										<tr>
+											<th>Credits Toward GPA</th>
+											<th>Credits Not for GPA</th>
+											<th>Grade Point Average</th>
+											<th>Total Credits</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+
+										</tr>
+									</tbody>
+								</table>
+								<p>
+									* Unavailable *
+								</p>
+							</div>
+							<div id="content_3" class="inv">
+								<h1>* Under Construction *</h1> 
+							</div>
+
+							<script>
+								document.getElementById('target').addEventListener('change', function() {
+									'use strict';
+									var vis = document.querySelector('.vis'),
+									    target = document.getElementById(this.value);
+									if (vis !== null) {
+										vis.className = 'inv';
+									}
+									if (target !== null) {
+										target.className = 'vis';
+									}
+								});
+							</script>
+
+							<br>
+							<br>
+							<style type="text/css">
+								.style1 {
+									text-align: center;
+								}
+
+								h1 {
+									font-family: consolas;
+								}
+								p {
+									font-family: Consolas;
+								}
+								.wrapper {
+									border: 2px solid #000000;
+									border-radius: 25px;
+									padding-left: 15px;
+									padding-right: 15px;
+								}
+
+							</style>
+							<br>
+							<br>
 					</td>
 				</tr>
 
@@ -128,9 +250,7 @@
 		</script>
 		<script src="js/plugins.js"></script>
 		<script src="js/main.js"></script>
-		<script type="text/javascript">
-			
-		</script>
+		<script type="text/javascript"></script>
 
 	</body>
 

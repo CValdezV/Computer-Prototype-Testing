@@ -58,7 +58,8 @@
 								</td>
 							</tr>
 						</tbody>
-					</table></td>
+					</table>
+				</td>
 					<td align="center" valign="top" style="width: 594px">
 					<br>
 					<div class="wrapper">
@@ -86,8 +87,7 @@
 							</select>
   <input id= "button" type = "button" value="add" onclick ="addSampleRow('myClasses')">
 </form>
-<h3>check a box to drop the class</h3>
-<input type="button" id="btnDelete" value="Drop Selected" onclick="removeSampleRow('myClasses')">
+<br><br>
 <table id="myClasses" border="1" cellspacing="2" cellpadding="10">
     <tr>
 
@@ -98,6 +98,8 @@
       <td>Drop</td>
     </tr>
 </table>
+<br>
+<input type="button" id="btnDelete" value="Drop Selected" onclick="removeSampleRow('myClasses')">
 
 					</div>
 					
@@ -207,7 +209,7 @@ function removeSampleRow(id) {
 		}
 	}else{
 		/*** Alert user if there are no rows being added ***/
-		alert("There are no rows being added");
+		alert("No classes registered to drop");
 	}
 }
 		</script>
